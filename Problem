@@ -97,10 +97,7 @@ int q=sc.nextInt();
 		math.add(p,q);
 		math.mul(p,q);
 		math.task(p,q);
-		
-
 	}
-
 }
 
 /*Example6:
