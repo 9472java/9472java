@@ -11,3 +11,58 @@ System.out.println(e);
 }
 }
 }
+
+
+// Practical
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Employee{
+	int rollno;
+	String name, address;
+	
+	public Employee(int rollno, String name, String address) {
+		this.rollno = rollno;
+		this.name =name;
+		this.address =address;
+	}
+  public String toString() {
+	  return this.rollno +""+ this.name +""+ this.address;
+  }
+}
+   
+    class Sortbyroll implements Comparator<Employee>{
+    	public int compare(Employee a, Employee b) {
+    		return a.rollno + b.rollno;
+    	}
+    }
+
+class Main1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Employee[] arr = {new Employee(86 , "G", "kandhar"),
+				new Employee(76 , "A", "NANDED"),
+				new Employee(66 , "H", "CHANDRAPUR"),
+};
+		System.out.println("unsorted");
+		
+		for (int i=0; i<arr.length; i++) {
+			System.out.println(arr[i]);
+			
+			Arrays.sort(arr, new Sortbyroll());
+			System.out.println("\nSorted by rollno");
+
+			for (int j=0; i<arr.length; i++) {
+			System.out.println(arr[i]);
+
+			}
+
+		}
+
+
+	}
+
+}
