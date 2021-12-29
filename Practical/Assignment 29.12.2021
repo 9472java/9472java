@@ -1,0 +1,252 @@
+// 1
+
+public class Multithread1 extends Thread {
+	
+	public void run() {
+		try {
+			System.out.println("thread is exicuting now..");
+			
+		}catch(Exception e) {}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Multithread1 m1=new Multithread1();
+		m1.start();
+
+	}
+
+}
+
+
+// 2
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+public class TestThread3 {
+
+	public static void main(String[] args)throws InterruptedException {
+		// TODO Auto-generated method stub
+		ExecutorService e = Executors.newSingleThreadExecutor();
+		
+		try {
+			e.submit(new Thread());
+			System.out.println("Shutdown executor");
+			e.shutdown();
+			e.awaitTermination(5, TimeUnit.SECONDS);
+		}catch(InterruptedException ex) {
+			System.out.println("task interrupted");
+
+		}finally {
+			if(!e.isTerminated()) {
+				System.out.println("cancel non finished task");
+
+			}
+			e.shutdownNow();
+			System.out.println("shutdown finished");
+
+		}
+
+	}
+	static class Task implements Runnable{
+		
+		public void run() {
+			try {
+				Long duration = (long)(Math.random()*20);
+				System.out.println("Running task");
+				TimeUnit.SECONDS.sleep(duration);
+
+			}catch(InterruptedException ex) {
+				ex.printStackTrace();
+			}  
+		}
+	}
+
+}
+
+
+// 3
+
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class ProducerConsumerProblem {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		BlockingQueue sharedQueue = new LinkedBlockingQueue();
+	     Thread prod = new Thread(new Producer(sharedQueue));  
+	     Thread cons = new Thread(new Consumer(sharedQueue));  
+	  
+	    
+	     prod.start();  
+	     cons.start();  
+
+	}
+
+}
+class Producer implements Runnable {  
+	  
+    private final BlockingQueue sharedQueue;  
+  
+    public Producer(BlockingQueue sharedQueue) {  
+        this.sharedQueue = sharedQueue;  
+    }  
+  
+    @Override  
+    public void run() {  
+        for(int i=0; i<10; i++){  
+            try {  
+                System.out.println("Produced: " + i);  
+                sharedQueue.put(i);  
+            } catch (InterruptedException ex) {  
+                Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);  
+            }  
+        }  
+    }  
+  
+}  
+  
+
+class Consumer implements Runnable{  
+  
+    private final BlockingQueue sharedQueue;  
+  
+    public Consumer (BlockingQueue sharedQueue) {  
+        this.sharedQueue = sharedQueue;  
+    }  
+    
+    @Override  
+    public void run() {  
+        while(true){  
+            try {  
+                System.out.println("Consumed: "+ sharedQueue.take());  
+            } catch (InterruptedException ex) {  
+                Logger.getLogger(Consumer.class.getName()).log(Level.SEVERE, null, ex);  
+            }  
+        }  
+    }  
+}
+
+
+// 4
+
+import java.util.Random;  
+import java.util.concurrent.ArrayBlockingQueue;  
+import java.util.concurrent.BlockingQueue;  
+  
+public class TestThread {  
+  
+   public static void main(final String[] arguments) throws InterruptedException {  
+      BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);  
+  
+      Insert i = new Insert(queue);  
+      Retrieve r = new Retrieve(queue);  
+  
+      new Thread(i).start();  
+      new Thread(r).start();  
+  
+      Thread.sleep(2000);  
+   }    
+  
+  
+   static class Insert implements Runnable {  
+      private BlockingQueue<Integer> queue;  
+  
+      public Insert(BlockingQueue queue) {  
+         this.queue = queue;  
+      }  
+  
+      @Override  
+      public void run() {  
+         Random random = new Random();  
+  
+         try {  
+            int result = random.nextInt(200);  
+            Thread.sleep(1000);  
+            queue.put(result);  
+            System.out.println("Added: " + result);  
+              
+            result = random.nextInt(10);  
+            Thread.sleep(1000);  
+            queue.put(result);  
+            System.out.println("Added: " + result);  
+              
+            result = random.nextInt(50);  
+            Thread.sleep(1000);  
+            queue.put(result);  
+            System.out.println("Added: " + result);  
+         } catch (InterruptedException e) {  
+            e.printStackTrace();  
+         }  
+      }      
+   }  
+  
+   static class Retrieve implements Runnable {  
+      private BlockingQueue<Integer> queue;  
+  
+      public Retrieve(BlockingQueue queue) {  
+         this.queue = queue;  
+      }  
+        
+      @Override  
+      public void run() {  
+           
+         try {  
+            System.out.println("Removed: " + queue.take());  
+            System.out.println("Removed: " + queue.take());  
+            System.out.println("Removed: " + queue.take());  
+         } catch (InterruptedException e) {  
+            e.printStackTrace();  
+         }  
+      }  
+   }  
+}
+
+// 5
+
+import java.util.concurrent.Executor;  
+import java.util.concurrent.Executors;  
+import java.util.concurrent.ThreadPoolExecutor;  
+import java.util.concurrent.TimeUnit;  
+  
+public class TestThread {  
+   public static void main(final String[] arguments) throws InterruptedException {  
+      Executor e = Executors.newCachedThreadPool();  
+      e.execute(new Thread());  
+      ThreadPoolExecutor pool = (ThreadPoolExecutor)e;  
+      pool.shutdown();  
+   }    
+  
+   static class Thread implements Runnable {  
+      public void run() {  
+         try {  
+            Long duration = (long) (Math.random() * 5);  
+            System.out.println("Running Thread!");  
+            TimeUnit.SECONDS.sleep(duration);  
+            System.out.println("Thread Completed");  
+         } catch (InterruptedException ex) {  
+            ex.printStackTrace();  
+         }  
+      }  
+   }  
+}
+
+
+// 6
+
+
+class Testdaemon1 extends Thread{    
+public void run(){  
+          System.out.println("Running thread is daemon...");  
+}  
+public static void main (String[] args) {  
+      Testdaemon1 td= new Testdaemon1();  
+      td.start();  
+      setDaemon(true);   
+   }  
+}
