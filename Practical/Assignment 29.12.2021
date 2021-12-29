@@ -17,7 +17,12 @@ public class Multithread1 extends Thread {
 	}
 
 }
-
+/* OUTPUT:
+Exception in thread "main" java.lang.IllegalThreadStateException
+at java.base/java.lang.Thread.start(Thread.java:793)
+at Assignment1.main(Assignment1.java:13)
+thread is executing now........
+*/
 
 // 2
 
@@ -64,7 +69,10 @@ public class TestThread3 {
 	}
 
 }
-
+/* output:
+Shutdown executor
+shutdown finished
+*/
 
 // 3
 
@@ -131,7 +139,28 @@ class Consumer implements Runnable{
         }  
     }  
 }
-
+/*OUTPUT:
+Produced: 0
+Produced: 1
+Produced: 2
+Produced: 3
+Produced: 4
+Produced: 5
+Produced: 6
+Produced: 7
+Produced: 8
+Produced: 9
+Consumed: 0
+Consumed: 1
+Consumed: 2
+Consumed: 3
+Consumed: 4
+Consumed: 5
+Consumed: 6
+Consumed: 7
+Consumed: 8
+Consumed: 9
+*/
 
 // 4
 
@@ -206,6 +235,15 @@ public class TestThread {
       }  
    }  
 }
+/*OUTPUT:
+Added: 183
+Removed: 183
+Added: 1
+Removed: 1
+Added: 40
+Removed: 40
+*/
+
 
 // 5
 
@@ -235,6 +273,10 @@ public class TestThread {
       }  
    }  
 }
+/*OUTPUT:
+Running Thread!
+Thread Completed
+*/
 
 
 // 6
