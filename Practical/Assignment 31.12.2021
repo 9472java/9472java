@@ -1,0 +1,25 @@
+public class ThrowDemo {
+	static void validate(int age){
+		if(age<24) {
+			throw new ArithmeticException("not valid");
+
+		}else {
+			System.out.println("welcome to the club");
+
+		}
+
+	}
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		validate(17);
+		System.out.println("code remainder");
+  }
+  }
+  
+  output:
+  Exception in thread "main" java.lang.ArithmeticException: not valid
+	at ThrowDemo.validate(ThrowDemo.java:5)
+	at ThrowDemo.main(ThrowDemo.java:18)
