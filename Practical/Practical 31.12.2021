@@ -10,3 +10,8 @@ validate(17);
 System.out.println("code remainder");
 }
 }
+
+Output:
+Exception in thread "main" java.lang.ArithmeticException: not valid
+	at ThrowDemo.validate(ThrowDemo.java:5)
+	at ThrowDemo.main(ThrowDemo.java:18)
