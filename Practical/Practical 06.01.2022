@@ -1,3 +1,37 @@
+import java.util.Arrays;  
+class Searching1{  
+    public static void main(String args[]){  
+        int arr[] = {10,20,30,40,50};  
+        int key = 30;  
+        int result = Arrays.binarySearch(arr,key);  
+        if (result < 0)  
+            System.out.println("Element is not found!");  
+        else  
+            System.out.println("Element is found at index: "+result);  
+    }  
+}
+
+/*Output:
+Element is found at index: 2*/
+
+import java.util.Arrays;
+
+public class Shorting2 {
+public static void main(String[] args) {
+	int[] arr1= {12,10,11,9,20,14};
+	String[] arr2= {"shubham", "rajesh","ajay"};
+	Arrays.sort(arr1);
+	Arrays.sort(arr2);
+	System.out.println(Arrays.toString(arr1));
+	System.out.println(Arrays.toString(arr2));
+}
+}
+
+/*Output:
+[9, 10, 11, 12, 14, 20]
+[ajay, rajesh, shubham]
+*/
+
 1]
 public class Tester {
 
