@@ -27,7 +27,7 @@ public static void main(String[] args) {
 }
 }
 /*OUTPUT:
-shubham
+Govind
 raje
 bh
 bhbh
@@ -37,8 +37,8 @@ bhhh
 12
 12
 12
-[shubham, raje, bh, bhbh, bhhh]
+[Govind raje, bh, bhbh, bhhh]
 [12, 12, 12, 12, 12]
 add two element in one element
-[shubham, raje, bh, bhbh, bhhh, 12, 12, 12, 12, 12]
+[Govind, raje, bh, bhbh, bhhh, 12, 12, 12, 12, 12]
 */
