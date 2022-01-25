@@ -1,0 +1,77 @@
+use students_db;
+
+CREATE TABLE worker_tbl(
+	WORKER_ID INT NOT NULL PRIMARY KEY,
+	FIRST_NAME CHAR(25),
+	LAST_NAME CHAR(25),
+	SALARY INT(15),
+	DEPARTMENT CHAR(25)
+)
+insert into worker_tbl values(001,'Govind','Kamble',300000,'HR');
+insert into worker_tbl values(002,'Rajesh','Ghutke',80000,'Admin');
+insert into worker_tbl values(003,'Ajay','Lokhande',85000,'Admin');
+insert into worker_tbl values(004,'Rahul','Shahare',100000,'HR');
+insert into worker_tbl values(005,'Om','Giratkar',80000,'Admin');
+insert into worker_tbl values(006,'Tejas','Meshram',150000,'HR');
+insert into worker_tbl values(007,'Aboli','Goje',90000,'Account');
+insert into worker_tbl values(008,'Shreeman','Legend',80000,'Account');
+select * from worker_tbl;
+/*OUTPUT:
+# worker_id	first_name	last_name	worker_salary	worker_department
+1	Govind	Kamble	300000	HR
+2	Rajesh	Ghutke	80000	Admin
+3	Ajay	Lokhande	85000	Admin
+4	Rahul	Shahare	100000	HR
+5	Om	Giratkar	80000	Admin
+6	Tejas	Meshram	150000	HR
+7	Aboli	Goje	90000	Account
+8	Shreeman	Legend	80000	Account
+*/
+
+CREATE TABLE bonus_tbl(
+	WORKER_REF_ID INT,
+	BONUS_AMOUNT INT(10),
+	FOREIGN KEY (WORKER_REF_ID)REFERENCES Worker(WORKER_ID)
+        ON DELETE CASCADE
+);
+insert into bonus_tbl values(001,6000);
+insert into bonus_tbl values(002,2000);
+insert into bonus_tbl values(003,2500);
+insert into bonus_tbl values(001,4000);
+insert into bonus_tbl values(002,1000);
+select * from bonus_tbl;
+/*OUTPUT:
+# ref_id_bonus	amount_bonus
+1	6000
+1	4000
+2	2000
+2	1000
+3	2500
+*/
+
+CREATE TABLE title_tbl(
+	WORKER_REF_ID INT,
+	WORKER_TITLE CHAR(25),
+	FOREIGN KEY (WORKER_REF_ID)REFERENCES Worker(WORKER_ID)
+        ON DELETE CASCADE
+);
+insert into title_tbl values(001,'Manger');
+insert into title_tbl values(002,'Executive');
+insert into title_tbl values(008,'Asst. Manger');
+insert into title_tbl values(005,'lead');
+insert into title_tbl values(004,'Manger');
+insert into title_tbl values(007,'lead');
+insert into title_tbl values(006,'Manger');
+insert into title_tbl values(003,'Executive');
+select * from title_tbl;
+/*OUTPUT:
+# ref_id_title	worker_title
+1	Manger
+2	Executive
+3	Executive
+4	Manger
+5	lead
+6	Manger
+7	lead
+8	Asst. Manger
+*/
