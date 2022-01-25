@@ -16,16 +16,17 @@ insert into worker_tbl values(006,'Tejas','Meshram',150000,'HR');
 insert into worker_tbl values(007,'Aboli','Goje',90000,'Account');
 insert into worker_tbl values(008,'Shreeman','Legend',80000,'Account');
 select * from worker_tbl;
+
 /*OUTPUT:
-# worker_id	first_name	last_name	worker_salary	worker_department
-1	Govind	Kamble	300000	HR
-2	Rajesh	Ghutke	80000	Admin
-3	Ajay	Lokhande	85000	Admin
-4	Rahul	Shahare	100000	HR
-5	Om	Giratkar	80000	Admin
-6	Tejas	Meshram	150000	HR
-7	Aboli	Goje	90000	Account
-8	Shreeman	Legend	80000	Account
+ worker_id	first_name	last_name	worker_salary	worker_department
+  1	        Govind	         Kamble	          300000	HR
+  2	        Rajesh	         Ghutke	          80000	        Admin
+  3	        Ajay		 Lokhande	  85000		Admin
+  4		Rahul		 Shahare	  100000	HR
+  5		Om		 Giratkar	  80000		Admin
+  6		Tejas		 Meshram	  150000	HR
+  7		Aboli		 Goje		  90000		Account
+  8		Shreeman	 Legend		  80000		Account
 */
 
 CREATE TABLE bonus_tbl(
@@ -40,6 +41,8 @@ insert into bonus_tbl values(003,2500);
 insert into bonus_tbl values(001,4000);
 insert into bonus_tbl values(002,1000);
 select * from bonus_tbl;
+
+
 /*OUTPUT:
 # ref_id_bonus	amount_bonus
 1	6000
@@ -64,6 +67,8 @@ insert into title_tbl values(007,'lead');
 insert into title_tbl values(006,'Manger');
 insert into title_tbl values(003,'Executive');
 select * from title_tbl;
+
+
 /*OUTPUT:
 # ref_id_title	worker_title
 1	Manger
