@@ -1,0 +1,28 @@
+public class AlpCase {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stuethod stub
+      String name ="AFILIATE";
+      String lstring =name.toLowerCase();
+      System.out.println(lstring);
+	}
+
+}
+
+
+
+// Write the java program of single dimensional array
+
+public class Array_OneD {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+     int a[] = {25, 89, 100};
+    
+     for(int i=0; i<a.length; i++) {
+    	 System.out.println(a[i]);
+     }
+     
+	}
+
+}
