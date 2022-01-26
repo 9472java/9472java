@@ -1,0 +1,209 @@
+/*Example 1:
+ Input: S = "ABCddE"
+Output: "abcdde"
+
+Example 2:
+Input: S = "LMNOppQQ"
+Output: "lmnoppqq"
+*/
+
+//solution of Example 1 and Example 2
+import java.util.Scanner;
+public class Practical1 {
+public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+
+		// solution1
+
+		String s=sc.next();
+		s=s.toLowerCase();
+		System.out.println("S"+s);
+		
+		//solution2
+		String v=sc.next();
+		v=v.toLowerCase();
+		System.out.println("S"+v);
+	}
+}
+
+/*Example 3:
+Input: S = "GeeksforGeeks"
+Output: "skeeGrofskeeG" 
+
+ Example 4:
+Input: S = "ReversE"
+Output: "EsreveR"
+ */
+ 
+//solution of Example 3 and Example 4
+import java.util.Scanner;
+
+public class Practical2{
+public static void main(String[] args) {
+		// solution1
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		StringBuffer sb=new StringBuffer(s);
+		sb.reverse();
+		System.out.println("S"+sb);
+		
+		//solution2
+		String v=sc.nextLine();
+		StringBuffer sv=new StringBuffer(v);
+		sv.reverse();
+		System.out.println("S"+sv);
+	}
+}
+
+/*
+ Example 5:
+Input:
+2 4
+
+Output:
+6
+8
+20
+ */
+import java.util.Scanner;
+class Cls1
+{
+	 void add(int p,int q){
+        System.out.println(p+q);
+        }
+}
+
+class Cls2 extends Cls1
+{
+    void mul(int p,int q)
+    {
+        System.out.println(p*q);
+    }
+    
+    void task(int p,int q)
+	{
+		System.out.println((p*p)+(q*q));
+	}
+    
+}
+
+
+public class Practical3 extends Cls2 {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+int p=sc.nextInt();
+int q=sc.nextInt();
+		Cls2 math=new Cls2();
+		math.add(p,q);
+		math.mul(p,q);
+		math.task(p,q);
+	}
+}
+
+/*Example6:
+
+Input:
+Output:
+Hello World 
+Explanation:
+Print Hello World on a single line.*/
+public class Practical4 {
+
+	public static void main(String[] args) {
+String name="Hello World";
+System.out.println(name);
+	}
+}
+
+
+2. Write a Java program to sum values of an array.
+ 
+ public class Exercise2 {
+public static void main(String[] args) {      
+int my_array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int sum = 0;
+
+for (int i : my_array)
+    sum += i;
+System.out.println("The sum is " + sum);
+}
+}
+
+3 Write a Java program to calculate the average value of array elements.
+ 
+ public class Exercise4 {
+public static void main(String[] args) {   
+ 
+       int[] numbers = new int[]{20, 30, 25, 35, -16, 60, -100};
+       //calculate sum of all array elements
+       int sum = 0;
+       for(int i=0; i < numbers.length ; i++)
+        sum = sum + numbers[i];
+       //calculate average value
+        double average = sum / numbers.length;
+        System.out.println("Average value of the array elements is : " + average); 
+   }
+}
+
+4 Write a Java program to test if an array contains a specific value.
+
+public class Exercise5 {
+  public static boolean contains(int[] arr, int item) {
+      for (int n : arr) {
+         if (item == n) {
+            return true;
+         }
+      }
+      return false;
+   }
+   public static void main(String[] args) {
+          int[] my_array1 = {
+            1789, 2035, 1899, 1456, 2013, 
+            1458, 2458, 1254, 1472, 2365, 
+            1456, 2265, 1457, 2456};
+      System.out.println(contains(my_array1, 2013));
+      System.out.println(contains(my_array1, 2015));
+   }
+}
+
+5 Write a Java program to find the index of an array element.
+
+public class Exercise6 {
+       public static int  findIndex (int[] my_array, int t) {
+        if (my_array == null) return -1;
+        int len = my_array.length;
+        int i = 0;
+        while (i < len) {
+            if (my_array[i] == t) return i;
+            else i=i+1;
+        }
+        return -1;
+    }
+    public static void main(String[] args) {
+      int[] my_array = {25, 14, 56, 15, 36, 56, 77, 18, 29, 49};
+      System.out.println("Index position of 25 is: " + findIndex(my_array, 25));
+      System.out.println("Index position of 77 is: " + findIndex(my_array, 77));
+       }
+}
+
+
+6 Write a Java program to remove a specific element from an array. 
+
+import java.util.Arrays; 
+public class Exercise7 {
+ 
+public static void main(String[] args) {
+   int[] my_array = {25, 14, 56, 15, 36, 56, 77, 18, 29, 49};
+   
+   System.out.println("Original Array : "+Arrays.toString(my_array));     
+   
+  // Remove the second element (index->1, value->14) of the array
+   int removeIndex = 1;
+
+   for(int i = removeIndex; i < my_array.length -1; i++){
+        my_array[i] = my_array[i + 1];
+      }
+// We cannot alter the size of an array , after the removal, the last and second last element in the array will exist twice
+    System.out.println("After removing the second element: "+Arrays.toString(my_array));
+ }
+ }
