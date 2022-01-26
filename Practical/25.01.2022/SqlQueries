@@ -1,3 +1,5 @@
+MySQL
+
 use org;
 select FIRST_NAME AS Worker_name from Worker; 
 select upper(FIRST_NAME) from Worker;
